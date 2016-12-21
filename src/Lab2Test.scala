@@ -1,24 +1,15 @@
 import org.scalatest.FunSuite
 
 class Lab2Test extends FunSuite{
-  test("Should return variance of List - 5.36") {
-    val result = Lab2.varianceList(List(1,4,5,6,8))
-    assert(result == 5.36)
+
+  test(" Expect to return variance Some(1778.5)") {
+    val s: Seq[Double] = List(1.0, 2.0, 5.0, 100.0);
+
+    assert(Lab2.variance(s) == Some(1778.5))
   }
 
-  test("Should return variance of Stream - 0.25") {
-    val result = Lab2.varianceStream(Stream(1, 2))
-    assert(result == 0.25)
+  test("The is no variance for empty list") {
+    assert(Lab2.variance(Nil) == None)
   }
 
-  test("Expect to throw RuntimeException because list is empty") {
-    assertThrows[RuntimeException] {
-      val variance = Lab2.varianceList(List())
-    }
-  }
-
-  test("Should return 0") {
-    val result = Lab2.varianceStream(Stream(1))
-    assert(result == 0)
-  }
 }

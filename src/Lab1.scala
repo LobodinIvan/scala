@@ -1,6 +1,5 @@
 import scala.math.pow
 
-
 /*Написать функцию умножения чисел (их квадратов, кубов и т.д.) в
   диапазоне (аналогично рассмотренной на лекции).*/
 
@@ -14,7 +13,8 @@ object Lab1 {
     */
   def multiply(a: Int, b: Int, c: (Int) => Int): Int = {
     if (a == b) c(a)
-    else c(a) * multiply(a + 1, b, c)
+    else if (a < b) c(a) * multiply(a + 1, b, c)
+    else c(a) * multiply(a - 1, b, c)
   }
 
   /**

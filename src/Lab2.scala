@@ -16,6 +16,14 @@ object Lab2 {
     mean(xs).flatMap(m => mean(xs.map(x => Math.pow(x - m, 2))))
   }
 
+  def variance2(xs: Seq[Double]): Option[Double] = xs match {
+    case Seq() => None
+    case _ =>
+      val length = xs.length
+      val mean = xs.sum / xs.length
+      Some(xs.map(x => math.pow(x - mean,2)).sum /length)
+  }
+
   /**
     *
     * @param s any sequence
